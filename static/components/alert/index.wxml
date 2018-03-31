@@ -1,0 +1,6 @@
+<view class="alert">
+  <view>{{ text }}</view>
+  <view class="alert-slot">
+    <slot></slot>
+  </view>
+</view>

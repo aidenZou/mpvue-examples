@@ -1,23 +1,20 @@
 <template>
   <div class="container" @click="clickHandle('test click', $event)">
-
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
+        <!-- mpvue组件 -->
         <card :text="userInfo.nickName"></card>
       </div>
     </div>
 
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
+    <!-- 原生组件 -->
+    <alert></alert>
+    <alert text="我是原生实现的 alert组件"></alert>
+    <alert text="自定义 slot">
+      <div>slot: 默认style</div>
+      <div class="diy">slot: 自定义style</div>
+    </alert>
   </div>
 </template>
 
@@ -85,6 +82,10 @@ export default {
 
 .usermotto {
   margin-top: 150px;
+}
+
+.diy {
+  color: red;
 }
 
 .form-control {
